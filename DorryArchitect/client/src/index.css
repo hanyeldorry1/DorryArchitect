@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Cyberpunk theme - Neon Yellow and Black */
+  --background: 0 0% 3%; /* Pure black background (#080808) */
+  --foreground: 60 100% 70%; /* Neon yellow text */
+  --muted: 0 0% 7%; /* Very dark gray (#121212) */
+  --muted-foreground: 60 80% 60%; /* Softer yellow */
+  --popover: 0 0% 2%; /* Nearly black popover */
+  --popover-foreground: 60 100% 70%; /* Neon yellow */
+  --card: 0 0% 5%; /* Very dark card background */
+  --card-foreground: 60 100% 70%; /* Neon yellow */
+  --border: 60 100% 50%; /* Neon yellow border */
+  --input: 0 0% 10%; /* Dark input background */
+  --primary: 60 100% 60%; /* Neon yellow primary (#FFFF00) */
+  --primary-foreground: 0 0% 0%; /* Pure black text on primary */
+  --secondary: 45 100% 50%; /* Golden yellow secondary (#FFD700) */
+  --secondary-foreground: 0 0% 0%; /* Black text on secondary */
+  --accent: 50 100% 50%; /* Amber accent */
+  --accent-foreground: 0 0% 0%; /* Black text on accent */
+  --destructive: 0 100% 60%; /* Neon red destructive */
+  --destructive-foreground: 0 0% 0%; /* Black text on destructive */
+  --ring: 60 100% 50%; /* Neon yellow ring */
+  --radius: 0.25rem; /* Sharper corners for cyberpunk feel */
+
+  /* Chart colors - cyberpunk palette */
+  --chart-1: 60 100% 60%; /* Yellow */
+  --chart-2: 45 100% 50%; /* Gold */
+  --chart-3: 30 100% 50%; /* Orange */
+  --chart-4: 15 100% 50%; /* Orange-red */
+  --chart-5: 0 100% 50%; /* Red */
+}
+
+.dark {
+  /* Even darker cyberpunk theme */
+  --background: 0 0% 0%; /* Pure black background (#000000) */
+  --foreground: 60 100% 75%; /* Brighter neon yellow */
+  --muted: 0 0% 5%; /* Very dark gray */
+  --muted-foreground: 60 80% 65%; /* Brighter soft yellow */
+  --popover: 0 0% 1%; /* Pure black popover */
+  --popover-foreground: 60 100% 75%; /* Bright neon yellow */
+  --card: 0 0% 3%; /* Nearly black card */
+  --card-foreground: 60 100% 75%; /* Bright neon yellow */
+  --border: 60 100% 65%; /* Bright neon yellow border */
+  --input: 0 0% 8%; /* Dark input */
+  --primary: 60 100% 65%; /* Bright neon yellow */
+  --primary-foreground: 0 0% 0%; /* Pure black */
+  --secondary: 45 100% 55%; /* Bright gold */
+  --secondary-foreground: 0 0% 0%; /* Pure black */
+  --accent: 50 100% 55%; /* Bright amber */
+  --accent-foreground: 0 0% 0%; /* Pure black */
+  --destructive: 0 100% 65%; /* Bright neon red */
+  --destructive-foreground: 0 0% 0%; /* Pure black */
+  --ring: 60 100% 60%; /* Bright neon yellow ring */
+  --radius: 0.25rem; /* Sharper corners */
+}
+
+/* Custom cyberpunk text effects */
+.cyberpunk-text {
+  text-shadow: 0 0 5px rgba(255, 255, 0, 0.7), 0 0 10px rgba(255, 255, 0, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.cyberpunk-glow {
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.7), 0 0 20px rgba(255, 255, 0, 0.3);
+}
+
+.cyberpunk-accent {
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.7), 0 0 10px rgba(255, 215, 0, 0.5);
+  letter-spacing: 0.5px;
+}
+
+/* UI Elements */
+.neon-border {
+  border: 1px solid rgba(255, 255, 0, 0.5);
+  box-shadow: 0 0 5px rgba(255, 255, 0, 0.5), inset 0 0 5px rgba(255, 255, 0, 0.2);
+}
+
+.neon-button {
+  background: linear-gradient(180deg, rgba(255, 255, 0, 0.2) 0%, rgba(255, 215, 0, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 0, 0.6);
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.4);
+  color: rgba(255, 255, 0, 1);
+  text-shadow: 0 0 5px rgba(255, 255, 0, 0.7);
+}
+
+.neon-button:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 0, 0.3) 0%, rgba(255, 215, 0, 0.2) 100%);
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.6);
+}
+
+.tech-bg {
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 0, 0.03) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(255, 255, 0, 0.03) 0%, transparent 20%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 0, 0.03) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.blink {
+  animation: blink 1s steps(1) infinite;
+  display: inline-block;
+}
