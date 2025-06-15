@@ -1,0 +1,49 @@
+[vite] connecting...
+[vite] connected.
+Warning: validateDOMNesting(...): <a> cannot appear as a descendant of &lt;a&gt;.
+    at a
+    at a
+    at https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=5937e407:337:18
+    at SidebarLink (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/components/sidebar/Sidebar.tsx:127:26)
+    at nav
+    at aside
+    at Sidebar (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/components/sidebar/Sidebar.tsx:34:35)
+    at div
+    at MainLayout (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/layouts/MainLayout.tsx:22:38)
+    at Dashboard (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/pages/dashboard.tsx:27:17)
+    at Route (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=5937e407:323:16)
+    at ProtectedRoute (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/lib/protected-route.tsx:22:3)
+    at Switch (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=5937e407:379:17)
+    at Router
+    at Provider (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=32f4471f:38:15)
+    at TooltipProvider (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=17a3b1b3:59:5)
+    at AuthProvider (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/hooks/use-auth.tsx:26:32)
+    at V (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/next-themes.js?v=bdd1ebc6:44:25)
+    at J (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/next-themes.js?v=bdd1ebc6:42:18)
+    at QueryClientProvider (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=85562aaa:2805:3)
+    at App
+at a
+at a
+at https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=5937e407:337:18
+at SidebarLink (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/components/sidebar/Sidebar.tsx:127:26)
+at nav
+at aside
+at Sidebar (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/components/sidebar/Sidebar.tsx:34:35)
+at div
+at MainLayout (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/layouts/MainLayout.tsx:22:38)
+at Dashboard (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/pages/dashboard.tsx:27:17)
+at Route (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=5937e407:323:16)
+at ProtectedRoute (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/lib/protected-route.tsx:22:3)
+at Switch (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=5937e407:379:17)
+at Router
+at Provider (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=32f4471f:38:15)
+at TooltipProvider (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=17a3b1b3:59:5)
+at AuthProvider (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/src/hooks/use-auth.tsx:26:32)
+at V (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/next-themes.js?v=bdd1ebc6:44:25)
+at J (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/next-themes.js?v=bdd1ebc6:42:18)
+at QueryClientProvider (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=85562aaa:2805:3)
+at App
+at t.value (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://15a9ff01-4873-4ff6-b825-ebbf0908c2bd-00-1fn4rljupoi6z.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400
