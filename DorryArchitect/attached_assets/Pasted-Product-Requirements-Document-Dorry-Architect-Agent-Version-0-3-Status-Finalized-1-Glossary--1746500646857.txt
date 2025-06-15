@@ -1,0 +1,184 @@
+Product Requirements Document: Dorry Architect Agent
+Version: 0.3 Status: Finalized
+
+1. Glossary/Thesaurus
+Term	Definition
+AI	Artificial Intelligence
+API	Application Programming Interface
+AR	Augmented Reality
+BIM	Building Information Modeling
+BOQ	Bill of Quantities
+CAD	Computer-Aided Design
+CSV	Comma-Separated Values
+HBRC	Housing and Building National Research Center (Egypt)
+IFC	Industry Foundation Classes (a standard format for BIM data)
+IoT	Internet of Things
+JSON	JavaScript Object Notation
+ML	Machine Learning
+MVP	Minimum Viable Product
+Neufert	Reference standard for architectural design guidelines
+PRD	Product Requirements Document
+Revit	BIM software by Autodesk
+STT	Speech-to-Text
+TBD	To Be Determined
+TPM	Technical Product Manager
+TTS	Text-to-Speech
+UI	User Interface
+VR	Virtual Reality
+WCAG	Web Content Accessibility Guidelines
+2. Agent Overview
+Dorry Architect is an AI-powered agent designed specifically for architects operating in Egypt. Its purpose is to streamline the architectural design process by automating tasks such as environmental analysis, initial design generation considering local context, detailed drawing production, Bill of Quantities (BOQ) generation with local pricing, BIM integration, and compliance verification against Egyptian building codes. The agent aims to enhance efficiency, accuracy, and cultural relevance in architectural projects, providing robust project management, collaboration features, and natural language interaction via text and Egyptian Arabic voice.
+
+3. Roles
+Architect (Primary User): Interacts with the agent to input project requirements, manage projects, generate designs, obtain drawings and BOQ, modify designs, collaborate, and ensure compliance. Uses text and potentially voice commands.
+Client: Can view designs (potentially through AR/VR) and provide feedback.
+Team Member: Collaborates on designs by adding comments and annotations, managed within project access controls.
+System Administrator: Manages user accounts, system settings, and data integrity.
+System (Dorry Architect Agent): Performs the core functions based on user input and integrated data sources, providing text and voice output.
+4. User Management & Project Management
+FR-UM-001: Implement secure user registration and login (Authentication).
+FR-UM-002: Allow architects to create, name, save, and load distinct projects.
+FR-UM-003: Store project-specific data (inputs, designs, BOQs, conversations) associated with the user and project.
+FR-UM-004: Implement basic access control to allow architects to share projects with team members (view/comment permissions initially).
+5. Detailed Operations/Workflows
+(Diagrams from v0.2 remain relevant but imply potential for voice output where 'Agent-->>User' interactions occur)
+
+5.1 Initial Design Generation Workflow
+(Conceptual - no change needed here)
+
+5.2 BOQ Generation Workflow
+(Conceptual - no change needed here)
+
+5.3 Real-time Modification Workflow
+(Diagram updated to show optional voice output)
+
+6. Functional Requirements
+6.1 Input Handling
+FR-IH-001: Accept Land Area (numerical value, units sqm).
+FR-IH-002: Accept Geographic Coordinates (latitude, longitude).
+FR-IH-003: Accept user preferences for cultural styles (e.g., selections, text input).
+FR-IH-004: Accept IoT sensor data (e.g., soil data) via JSON or CSV format (Post-MVP).
+FR-IH-005: Accept an optional Project Budget (numerical value, currency EGP).
+(Potentially add FR-IH-006: Accept user voice input in Egyptian Arabic via STT - Clarification needed if STT is required)
+6.2 Design Generation & Analysis
+FR-DG-001: Analyze wind direction using data from Windy or Storm Glass APIs based on input coordinates. (MVP - High Priority)
+FR-DG-002: Analyze natural lighting/solar irradiance using data from WeatherAPI or OpenWeatherMap based on input coordinates. (MVP - High Priority)
+FR-DG-003: Generate initial architectural conceptual designs (visual output format TBD). (MVP - High Priority)
+FR-DG-004: Position wet areas (bathrooms, kitchens) predominantly opposite the prevailing wind direction identified in FR-DG-001. (MVP - Medium Priority)
+FR-DG-005: Incorporate elements of local cultural styles (e.g., Islamic architecture) using predefined style libraries and/or user input. (MVP - Low Priority)
+FR-DG-006: Reference and apply standard dimensions and spatial guidelines from Neufert's architectural standards. (MVP - Medium Priority)
+FR-DG-007: Generate Construction Shop Drawings from conceptual designs. (Post-MVP)
+FR-DG-008: Generate Detailed Plans (floor plans, elevations, sections) from conceptual designs. (Post-MVP)
+6.3 BOQ Generation
+FR-BQ-001: Generate a detailed Bill of Quantities (BOQ) based on materials and components identified in conceptual designs. (MVP - High Priority)
+FR-BQ-002: Fetch material and component prices from specified local Egyptian websites (Mowarrid, Go4WorldBusiness) and reports (Gleeds Egypt Construction Market Report). Initial MVP targets 1-2 sources (e.g., Mowarrid via scraping). (MVP - High Priority)
+FR-BQ-003: Present multiple pricing options for BOQ items where available. (Post-MVP refinement)
+FR-BQ-004: Sort pricing options from highest to lowest. (MVP - High Priority)
+FR-BQ-005: Include relevant metadata with prices (e.g., supplier reliability, delivery times, stock availability) where fetchable. (Post-MVP refinement)
+6.4 Integration & Export
+FR-IE-001: Export generated designs in IFC format for compatibility with BIM tools (Revit, AutoCAD). Basic geometry export for MVP. (MVP - Medium Priority)
+FR-IE-002: Integrate with weather APIs (Windy, Storm Glass, WeatherAPI, OpenWeatherMap) to fetch environmental data. (MVP - High Priority)
+FR-IE-003: Integrate with local municipal databases (HBRC) to verify building codes and permit requirements. Strategy: Seek partnership/data sharing; if unavailable, implement mechanism for manual data entry/update of core codes for verification. (Post-MVP for automated check; Manual reference info might be possible earlier).
+FR-IE-004: Accept and process IoT sensor data (soil info) to potentially optimize foundation designs. (Post-MVP)
+FR-IE-005: Integrate an Egyptian Arabic Text-to-Speech (TTS) engine. (MVP - Medium Priority) Potential model: EGTTS V0.1 (Hugging Face).
+6.5 User Interface & Collaboration
+FR-UI-001: Provide a chat-based User Interface (UI) for interaction (Text primarily). (MVP - High Priority)
+FR-UI-002: Allow real-time design modifications via chat commands (MVP focuses on simple parametric changes like dimensions). (MVP - High Priority)
+FR-UI-003: Provide immediate visual feedback of design modifications in the UI. (MVP - High Priority)
+FR-UI-004: Enable collaborative features allowing multiple team members to view the design. (Post-MVP)
+FR-UI-005: Allow team members to add text comments pinned to specific locations on the design canvas. (Post-MVP)
+FR-UI-006: Allow team members to add drawing overlays/sketches on the design canvas. (Post-MVP)
+FR-UI-007: Implement an in-app mechanism for users to provide feedback on the agent's performance and features. (MVP - Medium Priority)
+FR-UI-008: Provide optional voice output for agent responses using the integrated Egyptian Arabic TTS engine (FR-IE-005). (MVP - Medium Priority)
+FR-UI-009: Ensure TTS output adheres to specified Egyptian Arabic pronunciation rules: 'ق' as glottal stop, 'ج' as hard 'g'. (MVP - Linked to FR-IE-005)
+6.6 Alerts & Compliance
+FR-AC-001: Provide a warning if the generated design area significantly mismatches the input land area. (MVP - Low Priority)
+FR-AC-002: Provide a warning if the estimated cost from the BOQ exceeds the user-defined project budget (if budget is provided in FR-IH-005). (MVP - Medium Priority)
+FR-AC-003: Check generated designs against relevant Egyptian building codes retrieved from HBRC data. (Post-MVP for automated check)
+6.7 Advanced Features
+FR-AF-001: Incorporate AR/VR capabilities to allow clients virtual walkthroughs. (Post-MVP)
+FR-AF-002: Utilize Machine Learning trained on past regional projects to enhance design suggestions based on local climate and cultural preferences. (Post-MVP)
+7. Non-Functional Requirements
+NFR-001 (Context): Agent logic, data sources (pricing, codes), and cultural elements must be optimized for the Egyptian market. Default currency EGP.
+NFR-002 (Performance):
+Real-time feedback for chat-based modifications: < 2 seconds update time.
+Conceptual Design Generation: < 30 seconds (target).
+BOQ Generation (MVP scope): < 60 seconds (target, dependent on external scraping).
+API call timeouts: < 10 seconds.
+System Uptime: Target 99.5% availability.
+TTS Synthesis Latency: Real-time streaming or generation suitable for conversational interaction (Target < 1 second delay). (MVP)
+NFR-003 (Usability):
+Chat interface must understand natural language queries common in Egyptian architectural contexts (consider dialect/terms).
+Visualizations must be clear, accurate, and render correctly on common browsers/resolutions.
+TTS voice output must sound natural and authentic to native Egyptian Arabic speakers. (MVP)
+NFR-004 (Reliability):
+Agent must consistently apply design rules (Neufert, wet areas).
+Price fetching should handle errors gracefully (e.g., website down, item not found, structure change) and notify the user.
+Design outputs must be consistent.
+Data persistence must be reliable.
+TTS engine integration should be robust. (MVP)
+NFR-005 (Security):
+Secure user authentication and authorization must be implemented.
+All API keys and sensitive credentials must be securely stored (e.g., using secrets management).
+User project data must be handled confidentially and comply with relevant data protection regulations (e.g., GDPR if applicable, local laws). Data encryption at rest and in transit.
+NFR-006 (Maintainability): System designed modularly (APIs, rules engine, UI, TTS component). Web scraping modules must be easily updatable. Code documented.
+NFR-007 (Scalability): Architecture should support a growing number of users and projects. Target initial concurrent users: TBD. Plan for future integration of complex features (ML, AR/VR). Cloud-based infrastructure preferred.
+NFR-008 (Data Management):
+Utilize cloud-based storage for project data.
+Implement version control for design iterations within a project. Users should be able to view/revert to previous design stages.
+NFR-009 (Accessibility): UI should adhere to WCAG 2.1 Level AA guidelines where feasible. Voice output provides an alternative modality.
+NFR-010 (Localization):
+Primary text language: English.
+Provide full UI text localization support for Arabic (Egypt). (MVP)
+Provide TTS voice output specifically using Egyptian Arabic (ar-EG) dialect and pronunciation rules (FR-UI-009). (MVP)
+8. Data Specifications
+... (Existing specifications) ...
+Knowledge Sources:
+... (Existing sources) ...
+TTS Model: Potential use of models like EGTTS V0.1 (Hugging Face) or other suitable Egyptian Arabic TTS engines. (Added)
+9. API Definitions (High-Level)
+... (Existing definitions) ...
+Internal TTS Engine API (Conceptual):
+Method: POST
+Input: Text string, Language code (ar-EG)
+Output: Audio stream (e.g., WAV, MP3) or file path.
+10. Machine Learning Integration
+(As per v0.2 - Post-MVP)
+
+11. Agent Prompt(s)
+(As per v0.2 - needs update if voice interaction is primary)
+
+Example Core Instruction Snippet: "You are Dorry Architect, an AI assistant for Egyptian architects using Egyptian Arabic colloquialisms where appropriate if the user interacts in Arabic (text or voice). Your goal is to help users create culturally relevant, compliant, and efficient architectural designs... Provide responses via text and optional voice output in natural-sounding Egyptian Arabic."
+12. Constraints/Limitations
+... (Existing constraints) ...
+C-09: Quality and naturalness of TTS output depend on the chosen TTS engine and model.
+C-10: Real-time voice interaction might require corresponding Speech-to-Text (STT) capabilities, which are not explicitly defined yet.
+13. MVP Definition (Version 0.3 - Finalized)
+Included in MVP:
+User Management: Basic Login/Registration, Project Create/Load/Save.
+Input Handling: Land Area, Coords, Optional Budget.
+Environmental Analysis: Wind/Light via APIs. (High Priority)
+Basic Cultural Design: Predefined Islamic elements library. (Low Priority)
+Wet Area Positioning Logic. (Medium Priority)
+Neufert Standard Dimension Reference. (Medium Priority)
+Conceptual Design Generation: Visual Output. (High Priority)
+Basic BOQ Generation: Material extraction, Price Fetching (1-2 sources, e.g., Mowarrid via scraping), Price Sorting. (High Priority)
+BIM/IFC Export: Basic geometry. (Medium Priority)
+Simple Chat-based Modifications: e.g., room dimensions. (High Priority)
+Basic Alerts: Area Mismatch (Low Priority), Budget Exceeded Alert (Medium Priority).
+User Feedback Mechanism. (Medium Priority)
+Localization: Arabic UI text support. (MVP)
+Data Management: Basic cloud storage & versioning concept.
+Egyptian Arabic TTS Integration: Basic TTS voice output for agent responses (FR-IE-005, FR-UI-008, FR-UI-009). (Medium Priority - Added to MVP)
+Excluded (for initial MVP):
+Shop Drawings / Detailed Plans Generation
+Complex Chat Modifications
+Collaboration Features
+Automated HBRC Compliance Check
+AR/VR Integration
+IoT Data Integration
+Advanced BOQ metadata
+ML-Enhanced Suggestions
+Advanced Project Management/Sharing features.
+Speech-to-Text (STT) input.
+14. Training & Support (Context)
